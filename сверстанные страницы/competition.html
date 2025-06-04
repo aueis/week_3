@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Описание конкурса | Моя семья – мой космос</title>
+    <style>
+        /* Общие стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #6a5acd;
+            transition: color 0.3s;
+        }
+        
+        a:hover {
+            color: #64b5f6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #5f87df;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #1565c0;
+        }
+        
+        /* Шапка сайта */
+        header {
+            background-color: #1e1e1e;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 70px;
+            margin-right: 10px;
+            border-radius: 100%;
+        }
+        
+        .logo-text {
+            font-size: 22px;
+            font-style: italic;
+            font-weight: bold;
+            color: #6a5acd;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            background-color: #333;
+        }
+        
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: #6a5acd;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 20px;
+        }
+        
+        /* Основной контент */
+        .main-content {
+            padding: 50px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #6a5acd;
+            font-size: 32px;
+        }
+        
+        /* Блок с описанием конкурса */
+        .competition-details {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            margin-bottom: 40px;
+        }
+        
+        .competition-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        
+        .competition-info {
+            padding: 30px;
+        }
+        
+        .competition-title {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #6a5acd;
+        }
+        
+        .competition-description {
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        .competition-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .meta-icon {
+            margin-right: 10px;
+            color: #6a5acd;
+            font-size: 24px;
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+            color: #ffc107;
+            font-size: 20px;
+        }
+        
+        .rating-count {
+            margin-left: 10px;
+            color: #e0e0e0;
+            font-size: 16px;
+        }
+        
+        .participants-count {
+            font-size: 20px;
+            color: #e0e0e0;
+        }
+        
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        /* Блок с отзывами */
+        .reviews-section {
+            background-color: #1a1a1a;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        
+        .reviews-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #6a5acd;
+        }
+        
+        .review-item {
+            background-color: #252525;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .review-author {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        .author-name {
+            font-weight: bold;
+        }
+        
+        .review-date {
+            font-size: 14px;
+            color: #999;
+            margin-top: 5px;
+        }
+        
+        .review-text {
+            line-height: 1.6;
+        }
+        
+        /* Подвал сайта */
+        footer {
+            background-color: #1e1e1e;
+            padding: 50px 0 20px;
+            color: #999;
+        }
+        
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+        
+        .footer-col {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 30px;
+            padding: 0 15px;
+        }
+        
+        .footer-title {
+            color: #6a5acd;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .footer-contacts p {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            margin-top: 20px;
+        }
+        
+        /* Стили для печати */
+        @media print {
+            header, footer, .reviews-section, .action-buttons {
+                display: none;
+            }
+            
+            body {
+                background-color: white;
+                color: black;
+            }
+            
+            .competition-image {
+                filter: grayscale(100%);
+            }
+            
+            .competition-details {
+                box-shadow: none;
+                background-color: white;
+            }
+            
+            .competition-info {
+                color: black;
+            }
+            
+            .competition-title {
+                color: black;
+            }
+            
+            .print-review {
+                display: block;
+                margin-top: 30px;
+                padding: 20px;
+                border: 1px solid #ddd;
+            }
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 1024px) {
+            .competition-image {
+                height: 350px;
+            }
+            
+            .competition-meta {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 796px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px;
+            }
+            
+            .competition-image {
+                height: 250px;
+            }
+            
+            .footer-col {
+                min-width: 100%;
+                text-align: center;
+            }
+            
+            .footer-links ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .footer-links li {
+                margin: 0 10px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="https://i.pinimg.com/736x/0d/5e/e2/0d5ee2e29c65e5bc242a2b6d9742522d.jpg" alt='Логотип "Моя семья – мой космос"'>
+                <div class="logo-text">Моя семья – <br> мой космос</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="registration.html">Регистрация</a></li>
+                    <li><a href="account.html">Личный кабинет</a></li>
+                    <li><a href="schedule.html">Расписание</a></li>
+                    <li><a href="competition.html">Конкурсы</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="main-content">
+        <div class="container">
+            <h1 class="section-title">Описание конкурса</h1>
+            
+            <!-- Блок с описанием конкурса -->
+            <div class="competition-details">
+                <img src="https://avatars.mds.yandex.net/i?id=df9d50e2773fe19f2cb979aa6565ad01_l-12728186-images-thumbs&n=13" alt="Космо-гонка" class="competition-image">
+                <div class="competition-info">
+                    <h2 class="competition-title">Космо-гонка</h2>
+                    <p class="competition-description">
+                        Примите участие в увлекательном квесте по исследованию космоса всей семьей. Решайте головоломки, выполняйте задания и узнавайте интересные факты о вселенной. 
+                        <br><br>
+                        Наш конкурс "Космо-гонка" - это уникальная возможность для всей семьи окунуться в мир приключений и открытий. Вы станете экипажем космического корабля, которому предстоит выполнить важную миссию - исследовать далекие галактики и найти новые обитаемые планеты.
+                        <br><br>
+                        В программе: интерактивные задания, научные эксперименты, творческие конкурсы и многое другое. Подходит для детей от 5 лет и их родителей. Продолжительность: 2 часа.
+                    </p>
+                    
+                    <div class="competition-meta">
+                        <div class="meta-item">
+                            <span class="meta-icon">★</span>
+                            <div>
+                                <div class="rating">★★★★☆</div>
+                                <div class="rating-count">4.2 (127 оценок)</div>
+                            </div>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">👥</span>
+                            <div>
+                                <div class="participants-count">Участников: 243</div>
+                                <div>Осталось мест: 57</div>
+                            </div>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">📅</span>
+                            <div>
+                                <div>Дата: 1 июня 2025</div>
+                                <div>Время: 10:00 - 12:00</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <a href="account.html" class="btn">Записаться на конкурс</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Блок с отзывами  -->
+            <div class="reviews-section">
+                <h3 class="reviews-title">Отзывы участников</h3>
+                
+                <div class="review-item">
+                    <div class="review-author">
+                        <img src="https://pic.rutubelist.ru/video/f9/69/f9692f09dd6c14a2ef33cea9c9f980a8.jpg" alt="Аватар пользователя" class="author-avatar">
+                        <div>
+                            <div class="author-name">Ирина Семенова</div>
+                            <div class="review-date">15 мая 2025</div>
+                        </div>
+                    </div>
+                    <p class="review-text">
+                        Мы с семьей впервые участвовали в конкурсе "Космо-гонка" и остались в полном восторге! Организация на высшем уровне, интересные задания, которые понравились и детям, и взрослым. Особенно запомнился эксперимент с созданием мини-ракеты. Дети до сих пор вспоминают! Обязательно придем еще!
+                    </p>
+                </div>
+                
+                <div class="review-item">
+                    <div class="review-author">
+                        <img src="https://pic.rutubelist.ru/video/f9/69/f9692f09dd6c14a2ef33cea9c9f980a8.jpg" alt="Аватар пользователя" class="author-avatar">
+                        <div>
+                            <div class="author-name">Алексей Петров</div>
+                            <div class="review-date">3 мая 2025</div>
+                        </div>
+                    </div>
+                    <p class="review-text">
+                        Отличный конкурс для семейного времяпрепровождения. Дочь (7 лет) была в полном восторге, особенно от станции с космическими головоломками. Организаторы молодцы - все продумано до мелочей. Единственное пожелание - сделать более продолжительным, два часа пролетели незаметно!
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Отзыв для печати  -->
+            <div class="print-review" style="display: none;">
+                <h3>Отзыв о конкурсе "Космо-гонка"</h3>
+                <p>"Это был один из самых запоминающихся семейных выходных! Дети были вовлечены в процесс с первой минуты, а мы, взрослые, с удовольствием помогали им решать космические задачи. Особенно впечатлила станция с виртуальным телескопом, где можно было рассмотреть разные планеты. Рекомендуем всем семьям!"</p>
+                <p><em>— Семья Ивановых, 12 апреля 2025</em></p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Подвал сайта -->
+    <footer id="footer">
+        <div class="container footer-container">
+            <div class="footer-col footer-contacts">
+                <h3 class="footer-title">Контакты</h3>
+                <p><a href="tel:+74842234567">+7 (4842) 23-45-67</a></p>
+                <p><a href="mailto:family@cosmos.ru">family@cosmos.ru</a></p>
+            </div>
+            <div class="footer-col footer-links">
+                <h3 class="footer-title">Навигация</h3>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="index-light.html">Главная-светлая</a></li>
+                    <li><a href="registration.html">Регистрация</a></li>
+                    <li><a href="competition.html">Конкурс</a></li>
+                    <li><a href="account.html">Личный кабинет</a></li>
+                    <li><a href="404.html">Страница не найдена</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 "Моя семья – мой космос". Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>
